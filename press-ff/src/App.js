@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { callBackendAPI, getMyData, sendMyData } from './serverUtils/utils';
 import { Header } from './Components/Header';
 import './App.css';
+import { Main } from './Components/Main';
 
 function App() {
   const [state, setState] = useState(null)
@@ -20,6 +21,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <Main />
       <div>
         {state}
       </div>
