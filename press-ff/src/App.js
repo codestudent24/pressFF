@@ -1,16 +1,37 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { callBackendAPI, getMyData, sendMyData } from './serverUtils/utils';
-import { updateWeight, logData, writeData } from './features/dataSlice';
-import { Header } from './Components/Header';
-import './App.css';
+import { writeData } from './features/dataSlice';
 import { Main } from './Components/Main';
+import { Header } from './Components/Header'
+import './App.css';
+import { Anthropometry } from './Components/Anthropometry';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element:
+    <>
+      <Header />
+      <Main />
+    </>
+  },
+  {
+    path: '/anthropometry',
+    element:
+    <>
+      <Header />
+      <Anthropometry />
+    </>
+  },
+]);
 
 function App() {
   const [state, setState] = useState(null)
   const [myData, setMyData] = useState(null)
 
-  const myReduxData = useSelector((state) => state.myData)
+  // const myReduxData = useSelector((state) => state.myData)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -22,16 +43,13 @@ function App() {
     .then(res => {
       setMyData(res)
       dispatch(writeData(res))
-      dispatch(logData(res))
-      console.log('From redux:', myReduxData)
     })
     .catch(err => console.log(err))
-  }, [myReduxData, dispatch])
+  }, [dispatch])
 
   return (
     <div className="App">
-      <Header />
-      <Main />
+      <RouterProvider router={router} />
       <div>
         {state}
       </div>

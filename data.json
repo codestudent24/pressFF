@@ -1,1 +1,31 @@
-{"login":"codestudent24","name":"Denis","weight":"87","height":"170","now":"28.09.2023"}
+{
+  "login":"codestudent24",
+  "name":"Denis",
+  "weight": [
+    {
+      "date": "24.09.2023",
+      "value": "90"
+    },
+    {
+      "date": "29.09.2023",
+      "value": "89"
+    }
+  ],
+  "sport": {
+    "benchPress": [
+      {
+        "date": "24.09.2023",
+        "weight": "100 kg",
+        "count": "9"
+      }
+    ],
+    "pullUps" : [
+      {
+        "date": "24.09.2023",
+        "count": "10"
+      }
+    ]
+  },
+  "height":"170",
+  "now":"28.09.2023"
+}
