@@ -20,6 +20,7 @@ const initialState = {
     pullUps : [
       {
         date: "24.09.2023",
+        weight: "80",
         count: "10"
       }
     ]
@@ -33,7 +34,20 @@ export const dataSlice = createSlice({
   initialState,
   reducers: {
     updateWeight(state, action) {
-      state.weight = action.payload
+      const now = new Date().toLocaleDateString("ru")
+      const newWeight = {
+        date: action.payload.date || now,
+        value: action.payload.value
+      }
+      state.weight.push(newWeight)
+    },
+    deleteWeight(state, action) {
+      let weightArray = [...state.weight]
+      weightArray = weightArray.filter((el) => {
+        return el.date !== action.payload.date ||
+        el.value !== action.payload.value
+      })
+      state.weight = weightArray
     },
     logData(state) {
       console.log('STATE', state)
@@ -50,5 +64,5 @@ export const dataSlice = createSlice({
   },
 })
 
-export const { updateWeight, logData, writeData } = dataSlice.actions
+export const { updateWeight, deleteWeight, logData, writeData } = dataSlice.actions
 export default dataSlice.reducer

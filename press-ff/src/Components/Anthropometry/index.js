@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import './style.css';
+import { deleteWeight, updateWeight } from "../../features/dataSlice";
 
 const calculateIndex = (height, weight) => {
   const myHeight = Number(height) / 100
@@ -22,6 +23,9 @@ const calculateColor = (value) => {
 export const Anthropometry = () => {
   const myData = useSelector((state) => state.myData)
   const [addData, setAddData] = useState(false)
+  const [value, setValue] = useState("")
+  const [date, setDate] = useState("")
+  const dispatch = useDispatch()
 
   return (
     <div className="anthrop">
@@ -36,6 +40,7 @@ export const Anthropometry = () => {
           <div className="cell">Дата измерения</div>
           <div className="cell">Вес</div>
           <div className="cell">Индекс массы тела</div>
+          <div className="cell"></div>
         </li>
         {myData.weight.map((stamp, index) => {
           const weightIndex = calculateIndex(myData.height, stamp.value)
@@ -45,14 +50,25 @@ export const Anthropometry = () => {
               <div className="cell">{stamp.date}</div>
               <div className="cell">{stamp.value}</div>
               <div className="cell" style={calculateColor(weightIndex)}>{weightIndex}</div>
+              <div className="cell" onClick={() => {
+                dispatch(deleteWeight({date: stamp.date, value: stamp.value, sendData: true}))
+              }}>x</div>
             </li>
           )
         })}
         {addData && (
           <li className="item">
             <div className="cell"></div>
-            <input className="cell" type="date" placeholder="01.01.2023"></input>
-            <input className="cell" type="text" placeholder="80"></input>
+            <input
+              className="cell"
+              type="date"
+              placeholder="01.01.2023"
+              onChange={(event) => setDate(event.target.value)}></input>
+            <input
+              className="cell"
+              type="text"
+              placeholder="80"
+              onChange={(event) => setValue(event.target.value)}></input>
             <div className="cell"></div>
           </li>
         )}
@@ -63,7 +79,11 @@ export const Anthropometry = () => {
       {addData && (
         <div className="button-wrapper">
           <button className="button" onClick={() => {
+            dispatch(updateWeight({date, value, sendData: true}))
             setAddData(false)
+            setTimeout(() => {
+              console.log(myData)
+            }, 2000)
           }}
           >
             Сохранить

@@ -5,8 +5,9 @@ import { callBackendAPI, getMyData, sendMyData } from './serverUtils/utils';
 import { writeData } from './features/dataSlice';
 import { Main } from './Components/Main';
 import { Header } from './Components/Header'
-import './App.css';
 import { Anthropometry } from './Components/Anthropometry';
+import { Sport } from './Components/Sport';
+import './App.css';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,14 @@ const router = createBrowserRouter([
     <>
       <Header />
       <Anthropometry />
+    </>
+  },
+  {
+    path: '/sport',
+    element:
+    <>
+      <Header />
+      <Sport />
     </>
   },
 ]);

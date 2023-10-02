@@ -21,7 +21,8 @@ app.get('/my-data', (req, res) => {
 app.post('/my-data', (req, res) => {
   const data = req.body
   fs.writeFileSync('./data.json', JSON.stringify(data), {encoding: 'utf8', flag: 'w'})
-  res.sendStatus(200);
+  res.status(200);
+  res.send(JSON.stringify({code: 200, status: "OK"}))
 })
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

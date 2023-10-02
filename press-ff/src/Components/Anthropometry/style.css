@@ -42,23 +42,20 @@
   flex-shrink: 0;
 }
 
+.anthrop .item div.cell:nth-of-type(5) {
+  width: 10px;
+  color: #7E8492;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.anthrop .item div.cell:nth-of-type(5):hover {
+  color: #FFFFFF;
+}
+
 .button-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 16px;
-}
-
-.button {
-  width: fit-content;
-  min-width: 150px;
-  padding: 8px 24px;
-  border: none;
-  border-radius: 100px;
-  background: #FFF;
-  color: #1D1E25;
-  flex-shrink: 0;
-  font-family: "Inter bold";
-  font-size: 1rem;
-  cursor: pointer;
 }

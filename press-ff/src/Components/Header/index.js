@@ -10,7 +10,7 @@ export const Header = () => {
       <nav>
         <Link to="/">На главную</Link>
         <Link to="/anthropometry">Антропометрия</Link>
-        <a href="/">Спортивные показатели</a>
+        <Link to="/sport">Спортивные показатели</Link>
         <a href="/">Журнал</a>
         <a href="/">О себе</a>
       </nav>

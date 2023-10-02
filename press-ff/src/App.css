@@ -40,6 +40,20 @@
   color: #61dafb;
 }
 
+.button {
+  width: fit-content;
+  min-width: 150px;
+  padding: 8px 24px;
+  border: none;
+  border-radius: 100px;
+  background: #FFF;
+  color: #1D1E25;
+  flex-shrink: 0;
+  font-family: "Inter bold";
+  font-size: 1rem;
+  cursor: pointer;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

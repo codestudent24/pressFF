@@ -22,9 +22,8 @@ export const getMyData = async () => {
 
 export const sendMyData = async (myData) => {
   const responseBody = { ...myData }
-  responseBody.now = new Date().toLocaleDateString()
+  responseBody.lastModified = new Date().toLocaleDateString()
   const bodyStringified = JSON.stringify(responseBody)
-  console.log(typeof bodyStringified, bodyStringified)
 
   const response = await fetch('my-data', {
     method: 'POST',
