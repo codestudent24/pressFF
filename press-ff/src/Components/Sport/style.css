@@ -51,6 +51,7 @@
   border: none;
   border-radius: 5px;
   text-align: center;
+  flex-shrink: 0;
 }
 
 .sport .item select.cell {
@@ -59,6 +60,17 @@
 
 .sport .item input.cell:nth-of-type(1) {
   width: 150px;
+}
+
+.sport .item div.cell:nth-of-type(5) {
+  width: 10px;
+  color: #7E8492;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.sport .item div.cell:nth-of-type(5):hover {
+  color: #FFFFFF;
 }
 
 .sport .item input.cell::placeholder {

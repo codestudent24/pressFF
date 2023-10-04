@@ -42,10 +42,20 @@
   z-index: 2;
 }
 
-.main h1,
-.main h2 {
+.main h1 {
+  margin: 87px 0 0 20px;
+  color: #1D1E25;
+  font-feature-settings: 'calt' off;
+  font-family: "Inter bold";
+  font-size: 60px;
+  line-height: 90%;
+  letter-spacing: -3px;
   text-align: start;
-  margin: 0.25rem auto;
+}
+
+.main h2 {
+  margin-left: 20px;
+  text-align: start;
   font-family: 'Inter bold';
 }
 
@@ -54,12 +64,20 @@
 }
 
 .main p {
+  border-radius: 10px;
+  margin-left: 40px;
+  padding: 16px;
+  width: 505px;
+  box-shadow: 2px 2px 5px #7E8492;
+  background-color: #1D1E25;
+  color: #7E8492;
   font-family: 'Inter';
-  width: fit-content;
-  margin-bottom: 0.25rem;
   font-size: 1.5rem;
   font-style: italic;
-  margin-left: 1rem;
+}
+
+.main p span {
+  color: #FFFFFF;
 }
 
 .main p span:nth-of-type(1) {

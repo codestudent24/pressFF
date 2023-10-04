@@ -49,6 +49,24 @@ export const dataSlice = createSlice({
       })
       state.weight = weightArray
     },
+    updateSportData(state, action) {
+      const now = new Date().toLocaleDateString("ru")
+      const newSportData = {
+        date: action.payload.date || now,
+        weight: action.payload.weight,
+        count: action.payload.count,
+      }
+      state.sport[action.payload.sport].push(newSportData)
+    },
+    deleteSportData(state, action) {
+      let sportArray = [...state.sport[action.payload.sport]]
+      sportArray = sportArray.filter((el) => {
+        return el.date !== action.payload.date ||
+        el.weight !== action.payload.weight ||
+        el.count !== action.payload.count
+      })
+      state.sport[action.payload.sport] = sportArray
+    },
     logData(state) {
       console.log('STATE', state)
     },
@@ -64,5 +82,12 @@ export const dataSlice = createSlice({
   },
 })
 
-export const { updateWeight, deleteWeight, logData, writeData } = dataSlice.actions
+export const {
+  updateWeight,
+  deleteWeight,
+  updateSportData,
+  deleteSportData,
+  logData,
+  writeData,
+} = dataSlice.actions
 export default dataSlice.reducer
