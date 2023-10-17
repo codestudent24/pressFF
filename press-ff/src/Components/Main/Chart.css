@@ -1,0 +1,10 @@
+#chart {
+    background-image: linear-gradient(gray, lightgray);
+    color: white;
+}
+
+.chart-container button {
+  font-size: 1rem;
+  width: 40%;
+  padding: 1rem;
+}

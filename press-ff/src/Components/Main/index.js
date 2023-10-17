@@ -1,6 +1,7 @@
 import React, {useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import './style.css'
+import LinePlot from "./Chart";
 
 const textFade = keyframes`
 from {
@@ -50,6 +51,7 @@ export const Main = () => {
         </div>
         <div>
           <h2>Место под графики</h2>
+          <LinePlot />
         </div>
       </div>
     </main>
